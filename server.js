@@ -1,11 +1,14 @@
 const express = require("express");
-const path = require("path");
-
+const bodyParser = require("body-parser");
 const app = express();
-var PORT = 8080;
+const PORT = 8080;
 
-app.use(express.urlencoded({ extended:true }));
-app.use(express.json());
+app.listen(PORT, function(){
+    console.log(`Listening on PORT ${PORT}`)
+});
+
+app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.json());
 
 //////////////////////////////////////////////  ROUTES  //////////////////////////////////////////////
 
