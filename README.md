@@ -12,6 +12,6 @@ Navigate to the website listed below, and begin the survey. Answer each question
 * HTML/CSS/Bootstrap
 * Heroku
 
-![Spirit Animal Matcher](https://ibb.co/mijtxf "Spirit Animal Matcher")
+(https://ibb.co/mijtxf "Spirit Animal Matcher")
 
 [Spirit Animal Matcher](https://.herokuapp.com/ "Spirit Animal Matcher")
