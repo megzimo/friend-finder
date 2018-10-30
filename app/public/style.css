@@ -23,7 +23,7 @@
 font-family: 'Comfortaa', cursive;
 text-shadow: -1px -1px rgba(0,0,0,0.5),
     4px 4px #FFF5E3,
-    8px 8px #B1D9BB,
+    8px 8px rgb(177, 217, 187),
     12px 12px 25px rgba(94,68,94,0.8),
     16px 16px 50px rgba(47,75,79,0.5);
 }
@@ -38,8 +38,8 @@ h4{
     width: 60%;
     /* text-align: center;
     align-self: center; */
-    background: -webkit-linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
-    -webkit-linear-gradient(-45deg, rgba(120, 155, 255, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%); 
+    background: -webkit-linear-gradient(55deg, rgba(120, 155, 255, 0.9) 5%, rgba(177, 217, 187, 0.9) 95%),
+    -webkit-linear-gradient(rgba(135, 60, 255, 0.4)25%, rgba(135, 60, 255, 0.0) 75%); 
     /* background-color: rgba(120, 155, 255, 0.9);
     border-color: #B1D9BB; */
 }
