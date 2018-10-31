@@ -18,12 +18,12 @@
 </head>
 
 <body>
-        <div class="home-btn">
-                <a class="btn btn-light btn-lg btn-home" href="/">
-                    <i class="fas fa-home"></i>
-                </a>
-            </div>
-        
+    <div class="home-btn">
+        <a class="btn btn-light btn-lg btn-home" href="/">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+
     <div class="heading">
         <div class="bg-img rounded">
             <div class="container text-center">
@@ -217,10 +217,49 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
 
+<script type="text/javascript"> 
 
+    $(".submit-btn").on("click", function(event){
+        event.preventDefault();
+
+        let newFriend = {
+            name: $("input-name").val().trim(),
+            photo: $("input-photo").val().trim(),
+            scores:[
+                $("q1").val().trim(),
+                $("q2").val().trim(),
+                $("q3").val().trim(),
+                $("q4").val().trim(),
+                $("q5").val().trim(),
+                $("q6").val().trim(),
+                $("q7").val().trim(),
+                $("q8").val().trim(),
+                $("q9").val().trim(),
+                $("q10").val().trim()
+            ]
+        }
+
+        console.log("new friend info: ", newFriend);
+
+        $.post("/api/friends", newFriend, function(data){
+            if(!data){
+                alert("Please provide a valid name and photo link at the top of the page!")
+            }
+            $("input-name").val("");
+            $("input-photo").val("");
+
+            // provide name/image of matched spirit animal below
+            
+            // NEED TO LOOK INTO MODALS FOR POP UP IMAGE
+
+        });
+    });
+
+</script>
 
 
 </body>

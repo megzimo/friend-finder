@@ -1,6 +1,6 @@
 
-var friends = require("../data/friends");
-
+const friends = require("../data/friends");
+const path = require("path");
 
 module.exports = function(app) {
    
@@ -11,35 +11,30 @@ module.exports = function(app) {
 
 
     // API POST Request
-    app.post("/api/tables", function(req, res) {
-        tableData.push(req.body);
-        res.json(true);
+    app.post("/api/friends", function(req, res) {
+        let userResponse = req.body;
+        let differences = [];
+
+        // loop through friends and do math to add  
+        friends.forEach(function(user){
+          let diff = 0;
+
+            for(let i=0; i < userResponse.answers.length; i++){
+              let 
+            }
+
+
+        })
+       // push into api/friends
        
       });
-    
-};
+    };
 
 
 
 
 
-
-
-
-
-
-
-// /require path for location, and friends for the data
-// const path = require ('path');
-// const friends = require ('../data/friends');
-
-// //the function to export
-// var api = function (app) {
-
-//     //establishing the route of information
-//     app.get('/api/friends', function (req, res) {
-//         res.json(friends);
-//     })
+3
 
 //     //POsting through express to the Friends.js only avail on server, not persitant 
 //     app.post('/api/friends', function (req, res){
