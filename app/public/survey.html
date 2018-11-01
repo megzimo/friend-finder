@@ -206,60 +206,73 @@
                                     </div>
                                 </footer>
                             </div>
-
-
+                        </form>
                     </div>
-
-
-
-
-                    </form>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for results -->
+    <div id="modal-match">
+        <div class="modal-content">
+            <h4 class="modal-title">Your Spirit Animal Match</h4>
+            <div class="modal-body">
+                <h3 id="spirit-animal-match"></h3>
+                <img id="spirit-animal-image" class="img-responsive" width="100%" src="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 
 
 
-<script type="text/javascript"> 
+    <script type="text/javascript">
 
-    $(".submit-btn").on("click", function(event){
-        event.preventDefault();
+        $(".submit-btn").on("click", function (event) {
+            event.preventDefault();
 
-        let newFriend = {
-            name: $("input-name").val().trim(),
-            photo: $("input-photo").val().trim(),
-            scores:[
-                $("q1").val().trim(),
-                $("q2").val().trim(),
-                $("q3").val().trim(),
-                $("q4").val().trim(),
-                $("q5").val().trim(),
-                $("q6").val().trim(),
-                $("q7").val().trim(),
-                $("q8").val().trim(),
-                $("q9").val().trim(),
-                $("q10").val().trim()
-            ]
-        }
-
-        console.log("new friend info: ", newFriend);
-
-        $.post("/api/friends", newFriend, function(data){
-            if(!data){
-                alert("Please provide a valid name and photo link at the top of the page!")
+            let newFriend = {
+                name: $("input-name").val().trim(),
+                photo: $("input-photo").val().trim(),
+                scores: [
+                    $("q1").val().trim(),
+                    $("q2").val().trim(),
+                    $("q3").val().trim(),
+                    $("q4").val().trim(),
+                    $("q5").val().trim(),
+                    $("q6").val().trim(),
+                    $("q7").val().trim(),
+                    $("q8").val().trim(),
+                    $("q9").val().trim(),
+                    $("q10").val().trim()
+                ]
             }
-            $("input-name").val("");
-            $("input-photo").val("");
 
-            // provide name/image of matched spirit animal below
-            
-            // NEED TO LOOK INTO MODALS FOR POP UP IMAGE
+            console.log("new friend info: ", newFriend);
 
+            $.post("/api/friends", newFriend, function (data) {
+                if (!data) {
+                    alert("Please provide a valid name and photo link at the top of the page!")
+                }
+                $("input-name").val("");
+                $("input-photo").val("");
+
+                // populates name/image of match
+                $('#spirit-animal-match').text(data.name);
+                $("#spirit-animal-image").attr("src", data.photo);
+
+                // targets modal div and manually opens modal
+                $("#modal-match").modal(toggle);
+
+                // provide name/image of matched spirit animal below
+
+
+            });
         });
-    });
 
-</script>
+    </script>
 
 
 </body>
