@@ -2,25 +2,22 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-        crossorigin="anonymous">
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <title> Spirit Animal Matcher </title>
 </head>
 
 <body>
     <div class="home-btn">
         <a class="btn btn-light btn-lg btn-home" href="/">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-home">HOME</i>
         </a>
     </div>
 
@@ -30,10 +27,6 @@
                 <div class="header-content rounded p-5">
                     <h1 class="display-4 title">Spirit Animal Matcher </h1>
                 </div>
-                <!-- <div class="row">
-                    <div class="col-sm"> -->
-                <!-- </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -49,14 +42,14 @@
                         <form class="about-form">
                             <div class="form-group">
                                 <label for="input-name">Name</label>
-                                <input name="input-name" type="text" class="form-control" placeholder="ex: Jane Doe">
+                                <input class="input-name" type="text" placeholder="ex: Jane Doe">
                                 <div class="invalid-feedback">
                                     Please enter your name.
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="input-photo">Photo Link</label>
-                                <input type="text" name="input-photo" class="form-control" placeholder="ex: https://bit.ly/2qh2623">
+                                <input type="text" class="input-photo" placeholder="ex: https://bit.ly/2qh2623">
                                 <div class="invalid-feedback">Please provide url here</div>
                             </div>
                         </form>
@@ -196,24 +189,31 @@
 
                             <br>
                             <br>
-                            <div class="submit-btn">
-                                <button type="submit" class="btn btn-primary btn-lg gradient-btn" id="submit"><i class="fa fa-check-circle"
-                                        aria-hidden="true"></i> Submit</button>
-                                <footer class="footer">
-                                    <div class="ftr-container">
-                                        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/justbbarnett/FriendFinder">GitHub
-                                                Repo</a></p>
-                                    </div>
-                                </footer>
-                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg gradient-btn" id="submit"><i class="fa fa-check-circle"
+                                    aria-hidden="true"></i> Submit</button>
+                            <footer class="footer">
+                                <div class="ftr-container">
+                                    <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/megzimo/friend-finder">GitHub
+                                            Repo</a></p>
+                                </div>
+                            </footer>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div>
+        <h3 id="spirit-animal-match">
+        </h3>
+        <img id="spirit-animal-image">      
+    </div>
+
+
     <!-- Modal for results -->
-    <div id="modal-match">
+    <!-- <div id="modal-match">
         <div class="modal-content">
             <h4 class="modal-title">Your Spirit Animal Match</h4>
             <div class="modal-body">
@@ -224,51 +224,54 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
     <script type="text/javascript">
 
-        $(".submit-btn").on("click", function (event) {
+        $("#submit").on("click", function(event) {
             event.preventDefault();
 
-            let newFriend = {
-                name: $("input-name").val().trim(),
-                photo: $("input-photo").val().trim(),
+            let newSpirit = {
+                name: $(".input-name").val(),
+                iamge: $(".input-photo").val(),
                 scores: [
-                    $("q1").val().trim(),
-                    $("q2").val().trim(),
-                    $("q3").val().trim(),
-                    $("q4").val().trim(),
-                    $("q5").val().trim(),
-                    $("q6").val().trim(),
-                    $("q7").val().trim(),
-                    $("q8").val().trim(),
-                    $("q9").val().trim(),
-                    $("q10").val().trim()
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
                 ]
-            }
+            };
 
-            console.log("new friend info: ", newFriend);
-
-            $.post("/api/friends", newFriend, function (data) {
+            $.post("/api/friends", newSpirit, function (data) {
                 if (!data) {
                     alert("Please provide a valid name and photo link at the top of the page!")
-                }
-                $("input-name").val("");
-                $("input-photo").val("");
+                } else {
+
+                $(".input-name").val("");
+                $(".input-photo").val("");
+                // empty responses of each survery question below:
+
 
                 // populates name/image of match
                 $('#spirit-animal-match').text(data.name);
-                $("#spirit-animal-image").attr("src", data.photo);
+                $("#spirit-animal-image").attr("src", data.image);
+
+                console.log("data image link! " + data.image);
 
                 // targets modal div and manually opens modal
-                $("#modal-match").modal(toggle);
+                // $("#modal-match").modal(toggle);
 
                 // provide name/image of matched spirit animal below
 
-
+                }
             });
         });
 
@@ -276,5 +279,6 @@
 
 
 </body>
+
 
 </html>

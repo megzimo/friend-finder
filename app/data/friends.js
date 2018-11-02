@@ -1,4 +1,4 @@
-let friends =[
+let friends = [
     {
         "name": "Dingo",
         "image": "https://ichef.bbci.co.uk/news/660/media/images/58682000/jpg/_58682918_wild_dog_screz.jpg",
@@ -7,27 +7,27 @@ let friends =[
     {
         "name": "Hyena",
         "image": "https://bit.ly/2qh2623",
-        "scores": [1,,1,1,1,1,1,1,1,1]
+        "scores": [1,2,1,1,1,1,1,1,1,1]
     }, 
     {
         "name": "Panda",
         "image": "http://bit.ly/2yFLpSE",
-        "scores": [1,2,1,2,1,3,4,3,4,4]
+        "scores": [1,5,5,2,2,3,1,3,1,4]
     },
     {
         "name": "Owl",
         "image": "https://d1ia71hq4oe7pn.cloudfront.net/photo/63737991-720px.jpg",
-        "scores": [1,2,1,2,1,3,4,3,4,4]
+        "scores": [5,5,5,5,5,5,5,5,5,5]
     },
     {
         "name": "Elephant",
         "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg",
-        "scores": [1,2,1,2,1,3,4,3,4,4]
+        "scores": [1,2,3,2,1,3,4,5,4,3]
     },
     {
         "name": "Octopus",
         "image": "https://i.ytimg.com/vi/rX-YiYHahoo/maxresdefault.jpg",
-        "scores": [1,2,1,2,1,3,4,3,4,4]
+        "scores": [3,2,2,5,1,3,4,3,5,4]
     }
 ]
 
