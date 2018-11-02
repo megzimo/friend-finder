@@ -189,8 +189,8 @@
 
                             <br>
                             <br>
-                            <button type="submit" class="btn btn-primary btn-lg gradient-btn" id="submit"><i class="fa fa-check-circle"
-                                    aria-hidden="true"></i> Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg gradient-btn" id="submit" data-toggle="modal" data-target="#myModal"><i class="fa fa-check-circle" aria-hidden="true"></i>
+                                Submit</button>
                             <footer class="footer">
                                 <div class="ftr-container">
                                     <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/megzimo/friend-finder">GitHub
@@ -204,33 +204,37 @@
         </div>
     </div>
 
-
-    <div>
-        <h3 id="spirit-animal-match">
-        </h3>
-        <img id="spirit-animal-image">      
+    <!-- Modal for results -->
+    <div class="modal modal-dialog-center" role="dialog" id="myModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Your Spirit Animal Match</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 id="spirit-animal-match">
+                </h3>
+                <img id="spirit-animal-image">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 
 
-    <!-- Modal for results -->
-    <!-- <div id="modal-match">
-        <div class="modal-content">
-            <h4 class="modal-title">Your Spirit Animal Match</h4>
-            <div class="modal-body">
-                <h3 id="spirit-animal-match"></h3>
-                <img id="spirit-animal-image" class="img-responsive" width="100%" src="">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div> -->
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
     <script type="text/javascript">
-
-        $("#submit").on("click", function(event) {
+        $("#submit").on("click", function (event) {
             event.preventDefault();
 
             let newSpirit = {
@@ -251,12 +255,14 @@
             };
 
             $.post("/api/friends", newSpirit, function (data) {
-                if (!data) {
-                    alert("Please provide a valid name and photo link at the top of the page!")
-                } else {
+                // if (!data) {
+                //     alert("Please provide a valid name and photo link at the top of the page!")
+                // } else {
 
                 $(".input-name").val("");
                 $(".input-photo").val("");
+                // $("#myModal").modal("toggle");
+
                 // empty responses of each survery question below:
 
 
@@ -265,13 +271,7 @@
                 $("#spirit-animal-image").attr("src", data.image);
 
                 console.log("data image link! " + data.image);
-
-                // targets modal div and manually opens modal
-                // $("#modal-match").modal(toggle);
-
-                // provide name/image of matched spirit animal below
-
-                }
+                // }
             });
         });
 

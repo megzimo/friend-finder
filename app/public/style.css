@@ -80,3 +80,11 @@ text-align: center;
 h3, h5{
     font-family: 'Dosis', sans-serif;
 }
+
+#spirit-animal-image{
+    width:80%;
+}
+
+.modal{
+    width:50%;
+}
