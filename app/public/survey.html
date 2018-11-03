@@ -4,18 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-     <!-- Chosen -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script> -->
-
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/style.css">
-
     <title> Spirit Animal Matcher </title>
 </head>
 
@@ -209,33 +204,8 @@
         </div>
     </div>
 
-    <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-        
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h2 class="modal-title"><strong>Best Match</strong></h2>
-                </div>
-                <div class="modal-body" >
-                  <h2 id="match-name"></h2>
-                  <img class="mh-100 img-responsive" style="width:100%" id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-        
-            </div>
-          </div>
-
-
-
-
-
     <!-- Modal for results -->
-    <!-- <div class="modal modal-dialog-center" role="dialog" id="myModal">
+    <div class="modal modal-dialog-center" role="dialog" id="myModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Your Spirit Animal Match</h4>
@@ -252,47 +222,18 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
 
     <!-- jQuery library -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
     <script type="text/javascript">
-
-
-
-    // var config = {
-    //   ".chosen-select": {},
-    //   ".chosen-select-deselect": {
-    //     allow_single_deselect: true
-    //   },
-    //   ".chosen-select-no-single": {
-    //     disable_search_threshold: 10
-    //   },
-    //   ".chosen-select-no-results": {
-    //     no_results_text: "Oops, nothing found!"
-    //   },
-    //   ".chosen-select-width": {
-    //     width: "95%"
-    //   }
-    // };
-
-    // for (var selector in config) {
-    //   $(selector).chosen(config[selector]);
-    // }
-
-
-
-
-
-
-
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
@@ -320,7 +261,7 @@
 
                 $(".input-name").val("");
                 $(".input-photo").val("");
-                $("#myModal").modal("toggle");
+                // $("#myModal").modal("toggle");
 
                 // empty responses of each survery question below:
 
