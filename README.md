@@ -9,7 +9,7 @@ This fullstack application uses Express for runtime and Heroku to host this appl
 Navigate to the website listed below, and begin the survey. Answer each question to find out which animal best matches your spirit!
 A modal will pop up and display your true spirit animal, as depicted in the image below.
 
-![Spirit Animal Match Home](https://github.com/megzimo/friend-finder/blob/master/app/public/spirit_modal.jpg)
+![Spirit Modal](https://github.com/megzimo/friend-finder/blob/master/app/public/spirit_modal.JPG)
 
 ### Techonology Used
 * Node.js
