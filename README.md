@@ -12,6 +12,6 @@ Navigate to the website listed below, and begin the survey. Answer each question
 * HTML/CSS/Bootstrap
 * Heroku
 
-![Spirit Animal Matcher](https://ibb.co/mijtxf)
+![Spirit Animal Match Home](https://github.com/ckernan/bamazon/blob/master/app/public/home.jpg.png?raw=true)
 
 [Spirit Animal Matcher](https://.herokuapp.com/ "Spirit Animal Matcher")
